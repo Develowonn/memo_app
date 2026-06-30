@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+
+    <!-- 로그인 폼 -->
+    <form action="/users/login" method="post">
+        <!-- 로그인 폼 입력 필드 -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <!-- 로그인 버튼 -->
+        <button type="submit">Login</button>
+    </form>
+
+    <% if (typeof error !='undefined' ) { %>
+        <p style="color: red" id="error-message">
+            <%= error %>
+        </p>
+        <% } %>
+
+            <p>계정이 없으신가요? <a href="/users/register">회원가입</a></p>
+
+            <script>
+                document
+                    .getElementById("username")
+                    .addEventListener("input", function () {
+                        var errorMessage = document.getElementById("error-message");
+                        if (errorMessage) errorMessage.style.display = "none";
+                    });
+
+                document
+                    .getElementById("password")
+                    .addEventListener("input", function () {
+                        var errorMessage = document.getElementById("error-message");
+                        if (errorMessage) errorMessage.style.display = "none";
+                    });
+            </script>
+</body>
+
+</html>

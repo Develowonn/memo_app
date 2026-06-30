@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <h1>Register</h1>
+
+    <% if (typeof error !='undefined' ) { %>
+        <p style="color: red">
+            <%= error %>
+        </p>
+        <% } %>
+
+            <!-- 회원가입 폼 -->
+            <form action="/users/register" method="post">
+                <!-- 회원가입 폼 입력 필드 -->
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required />
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+                <!-- 회원가입 버튼 -->
+                <button type="submit">Register</button>
+            </form>
+
+            <script>
+                // 이벤트 리스너 추가
+                document.getElementById("username").addEventListener("input", hideError);
+
+                function hideError() {
+                    document.querySelector("p").style.display = "none" // 오류 메세지 숨김
+                }
+            </script>
+</body>
+
+</html>
